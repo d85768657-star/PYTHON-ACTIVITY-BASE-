@@ -1,0 +1,98 @@
+9: Student Marks Matrix Analysis
+
+Store marks of multiple students in a nested list, calculate each student's total and average, and calculate each subject's average.
+
+Algorithm
+
+1. Start.
+
+2. Create a nested list of marks.
+
+3. For each student, calculate total and average.
+
+4. For each subject, calculate the average across students.
+
+5. Track the student with the highest total.
+
+6. Display all results.
+
+7. Stop.
+
+ Flowchart 
+
+( START )
+    ↓
+[Store marks in a nested list]
+    ↓
+[Calculate each student's total and average]
+    ↓
+/ Display student results /
+    ↓
+[Calculate average for each subject]
+    ↓
+[Find student with highest total]
+    ↓
+/ Display subject averages and top student /
+    ↓
+( END )
+
+ Python  Code
+
+names = ["Asha", "Ravi", "Mina"]
+
+subjects = ["Python", "English", "Web"]
+
+marks = [
+
+    [80, 75, 90],
+
+    [65, 85, 70],
+
+    [90, 88, 92]
+
+]
+
+ 
+
+totals = []
+
+ 
+
+for i in range(len(marks)):
+
+    total = sum(marks[i])
+
+    average = total / len(subjects)
+
+    totals.append(total)
+
+    print(names[i], "Total:", total, "Average:", round(average, 2))
+
+ 
+
+for j in range(len(subjects)):
+
+    subject_total = 0
+
+    for i in range(len(marks)):
+
+        subject_total = subject_total + marks[i][j]
+
+    subject_average = subject_total / len(marks)
+
+    print(subjects[j], "average:", round(subject_average, 2))
+
+ 
+
+top_index = totals.index(max(totals))
+
+print("Highest total:", names[top_index], "-", max(totals))
+
+Sample output
+Asha Total: 245 Average: 81.67
+Ravi Total: 220 Average: 73.33
+Mina Total: 270 Average: 90.0
+Python average: 78.33
+English average: 82.67
+Web average: 84.0
+Highest total: Mina - 270
