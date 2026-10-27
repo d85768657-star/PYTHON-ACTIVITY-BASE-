@@ -1,0 +1,109 @@
+ 6: Multi-Product Shopping Budget Constraint
+
+ Calculate the total cost of a shopping basket and determine whether it fits within a fixed budget.
+
+ Algorithm
+
+1. Start.
+
+2. Read the shopping items from a list.
+
+3. Calculate each item cost and the subtotal.
+
+4. Apply a 10% discount if the subtotal is at least ₹1,000.
+
+5. Compare final cost with the budget.
+
+6. Display item costs, discount, final cost, and budget status.
+
+7. Stop.
+
+
+Flowchart 
+
+( START )
+    ↓
+[Set subtotal = 0]
+    ↓
+[Calculate each item's price × quantity]
+    ↓
+[Add item cost to subtotal]
+    ↓
+◇ More items? ◇ ─ Yes → [Process next item]
+    ↓ No
+◇ Subtotal ≥ 1000? ◇ → [Apply 10% discount if yes]
+    ↓
+[Calculate final amount]
+    ↓
+◇ Final amount ≤ budget? ◇
+    ↓
+/ Display bill and budget status /
+    ↓
+( END )
+
+Python Code
+
+items = [
+
+    ("Bag", 500, 1),
+
+    ("Notebook", 100, 3),
+
+    ("Pen", 20, 5)
+
+]
+
+budget = 1200
+
+subtotal = 0
+
+ 
+
+for name, price, quantity in items:
+
+    cost = price * quantity
+
+    subtotal = subtotal + cost
+
+    print(name, "cost: Rs.", cost)
+
+ 
+
+if subtotal >= 1000:
+
+    discount = subtotal * 0.10
+
+else:
+
+    discount = 0
+
+ 
+
+final_cost = subtotal - discount
+
+ 
+
+print("Subtotal: Rs.", subtotal)
+
+print("Discount: Rs.", discount)
+
+print("Final cost: Rs.", final_cost)
+
+ 
+
+if final_cost <= budget:
+
+    print("Within budget")
+
+else:
+
+     print("Over budget by Rs.", final_cost - budget)
+
+Sample output
+Bag cost: Rs. 500
+Notebook cost: Rs. 300
+Pen cost: Rs. 100
+Subtotal: Rs. 900
+Discount: Rs. 0
+Final cost: Rs. 900
+Within budget
