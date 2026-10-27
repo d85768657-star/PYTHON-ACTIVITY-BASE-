@@ -1,0 +1,71 @@
+8: Student Email and Identifier Validation
+
+Check a simple student email format and registration identifier format, and report whether each value follows the stated classroom rules.
+
+Algorithm
+
+1. Start.
+
+2. Input email and registration ID.
+
+3. Check the email separator and required parts.
+
+4. Check the ID prefix, length, and digits.
+
+5. Print valid or invalid for each field.
+
+6. Stop.
+
+ Flowchart 
+
+( START )
+    ↓
+/ Input email and registration ID /
+    ↓
+◇ Email follows the given rules? ◇ → [Print email valid/invalid]
+    ↓
+◇ ID starts with NRI, length is 7, last 4 are digits? ◇
+    ↓
+/ Print ID valid/invalid /
+    ↓
+( END )
+
+Python  Code
+
+email = input("Enter student email: ")
+
+reg_id = input("Enter registration ID (NRI followed by 4 digits): ")
+
+ 
+
+if email.count("@") == 1:
+
+    parts = email.split("@")
+
+    if parts[0] != "" and "." in parts[1]:
+
+        print("Email format: Valid")
+
+    else:
+
+        print("Email format: Invalid")
+
+else:
+
+    print("Email format: Invalid")
+
+ 
+
+if len(reg_id) == 7 and reg_id[:3] == "NRI" and reg_id[3:].isdigit():
+
+    print("Registration ID: Valid")
+
+else:
+
+    print("Registration ID: Invalid")
+
+ Sample output
+Enter student email: student@nri.edu
+Enter registration ID (NRI followed by 4 digits): NRI1234
+Email format: Valid
+Registration ID: Valid
