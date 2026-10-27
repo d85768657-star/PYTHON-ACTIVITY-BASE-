@@ -1,0 +1,78 @@
+Attendance Recovery Computation
+
+Calculate a student's current attendance percentage and find the minimum number of consecutive classes the student must attend to reach a required attendance percentage.
+
+Algorithm
+
+1. Start.
+
+2. Input classes attended and total classes.
+
+3. Validate the values.
+
+4. Calculate current attendance percentage.
+
+5. While the projected attendance is below 75%, add one attended class and one total class.
+
+6. Display current percentage and extra classes needed.
+
+7. Stop.
+
+Flowchart (text form)
+
+( START )
+    ↓
+/ Input classes attended and total classes /
+    ↓
+◇ Are inputs valid? ◇
+  No ↓                 Yes ↓
+[Print error]       [Calculate attendance %]
+                         ↓
+                  [Set extra classes = 0]
+                         ↓
+                  ◇ Attendance ≥ 75%? ◇
+                    No ↙       ↘ Yes
+          [Add one extra class]  [Display result]
+                    ↓                  ↓
+             [Check again]          ( END )
+
+
+             Python Source Code
+
+attended = int(input("Classes attended: "))
+
+total = int(input("Total classes held: "))
+
+required = 75
+
+ 
+
+if total <= 0 or attended < 0 or attended > total:
+
+    print("Invalid attendance data")
+
+else:
+
+    current = attended / total * 100
+
+    extra = 0
+
+ 
+
+    while (attended + extra) / (total + extra) * 100 < required:
+
+        extra = extra + 1
+
+ 
+
+    print("Current attendance:", round(current, 2), "%")
+
+    print("More classes to attend:", extra)
+
+OUTPUT
+
+Classes attended: 60
+Total classes held: 100
+Current attendance: 60.0 %
+More classes to attend: 60
+ 
