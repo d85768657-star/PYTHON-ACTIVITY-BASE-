@@ -1,0 +1,82 @@
+5: Student Performance Trend Analysis
+
+Compare a student's marks across two examinations, calculate the change in marks, and identify subjects where the student needs improvement.
+
+ Algorithm
+
+1. Start.
+
+2. Store subject names and marks from two exams.
+
+3. Visit each subject using a loop.
+
+4. Calculate the change in marks.
+
+5. Classify the trend as improved, declined, or unchanged.
+
+6. Flag latest marks below 40.
+
+7. Display the summary and stop.
+
+
+Flowchart
+
+( START )
+    ↓
+[Read subject marks]
+    ↓
+[Compare latest marks with earlier marks]
+    ↓
+◇ Marks increased? ◇ → [Trend: Improved]
+    ↓ No
+◇ Marks decreased? ◇ → [Trend: Declined]
+    ↓ No
+[Trend: Unchanged]
+    ↓
+◇ Latest mark below 40? ◇ → [Show improvement warning if needed]
+    ↓
+/ Display subject trend /
+    ↓
+( END )
+
+Python  Code
+
+subjects = ["Python", "English", "Web Development", "CTLR"]
+
+exam1 = [65, 72, 35, 60]
+
+exam2 = [78, 68, 38, 60]
+
+ 
+
+for i in range(len(subjects)):
+
+    change = exam2[i] - exam1[i]
+
+ 
+
+    if change > 0:
+
+        trend = "Improved"
+
+    elif change < 0:
+
+        trend = "Declined"
+
+    else:
+
+        trend = "Unchanged"
+
+ 
+
+    print(subjects[i], ":", trend, "| Change:", change)
+
+    if exam2[i] < 40:
+
+        print("  Needs improvement: latest mark is below 40")
+sample output
+Python : Improved | Change: 13
+English : Declined | Change: -4
+Web Development : Improved | Change: 3
+  Needs improvement: latest mark is below 40
+CTLR : Unchanged | Change: 0
