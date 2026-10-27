@@ -1,0 +1,101 @@
+ 4: Warehouse Inventory Reconciliation
+
+ Compare opening stock, received stock, dispatched stock, and recorded closing stock for products. Report any mismatch and calculate the quantity needed to reach a target stock.
+
+  Algorithm
+
+1. Start.
+
+2. Create product records as a list of lists.
+
+3. For each product, calculate expected closing stock.
+
+4. Compare expected and recorded closing stock.
+
+5. Calculate shortage relative to target stock.
+
+6. Display the results.
+
+7. Stop.
+
+
+. Flowchart 
+
+( START )
+    ↓
+[Read product stock details]
+    ↓
+[Calculate expected stock]
+    ↓
+◇ Expected stock = recorded stock? ◇
+  Yes ↓                    No ↓
+[Print stock matches]   [Print discrepancy]
+          ↓                  ↓
+       [Calculate shortage / replenishment]
+                    ↓
+             / Display results /
+                    ↓
+                 ( END )
+
+   Python Code
+
+products = [
+
+    ["Pens", 100, 50, 30, 120, 150],
+
+    ["Books", 80, 20, 25, 70, 100],
+
+    ["Files", 40, 10, 5, 45, 50]
+
+]
+
+ 
+
+for item in products:
+
+    name, opening, received, dispatched, recorded, target = item
+
+    expected = opening + received - dispatched
+
+    shortage = target - expected
+
+ 
+
+    if shortage < 0:
+
+        shortage = 0
+
+ 
+
+    print("\nProduct:", name)
+
+    print("Expected closing stock:", expected)
+
+    if expected == recorded:
+
+        print("Status: Stock matches")
+
+    else:
+
+        print("Status: Discrepancy")
+
+        print("Recorded closing stock:", recorded)
+
+    print("Quantity to reach target:", shortage)
+
+   sample output
+Product: Pens
+Expected closing stock: 120
+Status: Stock matches
+Quantity to reach target: 30
+
+Product: Books
+Expected closing stock: 75
+Status: Discrepancy
+Recorded closing stock: 70
+Quantity to reach target: 25
+
+Product: Files
+Expected closing stock: 45
+Status: Stock matches
+Quantity to reach target: 5                
