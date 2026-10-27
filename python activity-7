@@ -1,0 +1,74 @@
+7: Repeated Transaction Detection
+
+Check a list of transaction identifiers, find duplicate identifiers, and report transactions whose amounts exceed a chosen threshold.
+
+Algorithm
+
+1. Start.
+
+2. Store transactions as tuples in a list.
+
+3. Create an empty list of seen identifiers.
+
+4. For each transaction, check whether its identifier was seen before.
+
+5. Report duplicates and amounts above ₹5,000.
+
+6. Add the identifier to the seen list if it is new.
+
+7. Stop.
+
+ Flowchart 
+
+( START )
+    ↓
+[Set seen identifiers = empty list]
+    ↓
+[Read transaction identifier and amount]
+    ↓
+◇ Identifier already seen? ◇
+  Yes ↓                    No ↓
+[Print duplicate]       [Add identifier to list]
+          ↓                  ↓
+◇ Amount > 5000? ◇ → [Print high-amount warning if yes]
+    ↓
+◇ More transactions? ◇ ─ Yes → [Read next transaction]
+    ↓ No
+( END )
+
+Python Code
+
+transactions = [
+
+    ("TX101", 1200),
+
+    ("TX102", 6500),
+
+    ("TX101", 900),
+
+    ("TX103", 3000)
+
+]
+
+seen = []
+
+ 
+
+for identifier, amount in transactions:
+
+    if identifier in seen:
+
+        print(identifier, "is a duplicate transaction")
+
+    else:
+
+        seen.append(identifier)
+
+ 
+
+    if amount > 5000:
+
+        print(identifier, "has a high amount:", amount)
+sample output
+TX102 has a high amount: 6500
+TX101 is a duplicate transaction
