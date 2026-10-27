@@ -1,0 +1,109 @@
+10: Tuple-Based Product Catalogue Audit
+
+Store product IDs, prices, and stock quantities in tuples. Find invalid records, calculate inventory value, and identify products that need replenishment.
+
+Algorithm
+
+1. Start.
+
+2. Store product records as tuples in a list.
+
+3. Unpack each tuple into ID, price, and quantity.
+
+4. Validate price and quantity.
+
+5. Calculate inventory value for valid records.
+
+6. Report products with stock below 5.
+
+7. Display total inventory value.
+
+8. Stop.
+
+Flowchart 
+
+( START )
+    ↓
+[Read product tuples: ID, price, quantity]
+    ↓
+◇ Price > 0 and quantity ≥ 0? ◇
+  No ↓                    Yes ↓
+[Print invalid record]  [Calculate price × quantity]
+                              ↓
+                       [Add to total value]
+                              ↓
+                       ◇ Quantity < 5? ◇
+                         Yes ↓     No ↓
+                 [Show replenishment] [Continue]
+                              ↓
+                       ◇ More products? ◇
+                         Yes → [Read next product]
+                         No ↓
+                    / Display total value /
+                              ↓
+                           ( END )
+
+Python  Code
+
+products = [
+
+    ("P101", 20, 10),
+
+    ("P102", 50, 3),
+
+    ("P103", 0, 8),
+
+    ("P104", 15, 0)
+
+]
+
+ 
+
+total_value = 0
+
+ 
+
+for product_id, price, quantity in products:
+
+    print("\nProduct:", product_id)
+
+ 
+
+    if price <= 0 or quantity < 0:
+
+        print("Invalid product record")
+
+    else:
+
+        value = price * quantity
+
+        total_value = total_value + value
+
+        print("Inventory value: Rs.", value)
+
+ 
+
+        if quantity < 5:
+
+            print("Replenishment needed")
+
+ 
+
+print("\nTotal valid inventory value: Rs.", total_value)
+
+sample output
+Product: P101
+Inventory value: Rs. 200
+
+Product: P102
+Inventory value: Rs. 150
+Replenishment needed
+
+Product: P103
+Invalid product record
+
+Product: P104
+Inventory value: Rs. 0
+Replenishment needed
+
+Total valid inventory value: Rs. 350
