@@ -1,0 +1,77 @@
+3: ATM Transaction Sequence Simulation
+
+Simulate a sequence of deposits and withdrawals, maintain the account balance, reject invalid transactions, and show a transaction summary
+
+Algorithm
+
+1. Start with balance ₹1,000.
+
+2. Read each transaction from the list.
+
+3. For a deposit, add the amount if it is positive.
+
+4. For a withdrawal, subtract it only if positive and affordable.
+
+5. Reject invalid transactions.
+
+6. Display each result and the final balance.
+
+7. Stop.
+
+Flowchart 
+
+( START )
+    ↓
+[Set starting balance]
+    ↓
+[Read next transaction]
+    ↓
+◇ Valid deposit? ◇ → [Add amount]
+    ↓ No
+◇ Valid withdrawal and enough balance? ◇ → [Subtract amount]
+    ↓ No
+[Reject transaction]
+    ↓
+◇ More transactions? ◇ ─ Yes → [Read next transaction]
+    ↓ No
+/ Display final balance /
+    ↓
+( END )
+
+ Python  Code
+
+balance = 1000
+
+transactions = [("D", 500), ("W", 300), ("W", 1500), ("D", -50)]
+
+ 
+
+for kind, amount in transactions:
+
+    if kind == "D" and amount > 0:
+
+        balance = balance + amount
+
+        print("Deposit:", amount, "| Balance:", balance)
+
+    elif kind == "W" and amount > 0 and amount <= balance:
+
+        balance = balance - amount
+
+        print("Withdrawal:", amount, "| Balance:", balance)
+
+    else:
+
+        print("Rejected transaction:", kind, amount)
+
+ 
+
+print("Final balance: Rs.", balance)
+
+Sample output
+
+Deposit: 500 | Balance: 1500
+Withdrawal: 300 | Balance: 1200
+Rejected transaction: W 1500
+Rejected transaction: D -50
+Final balance: Rs. 1200
