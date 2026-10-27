@@ -1,0 +1,91 @@
+#Calculate a household electricity bill using consumption slabs, a fixed charge, and a simple rebate. The program should display the units consumed and the final bill.
+
+ Algorithm
+
+1. Start.
+
+2. Read units consumed.
+
+3. If units are invalid (negative), display an error.
+
+4. Calculate the energy charge using the correct slab(s).
+
+5. Apply the rebate if the energy charge is above ₹500.
+
+6. Add the fixed charge.
+
+7. Display the bill and stop.
+
+   Flowchart (text form)
+
+( START )
+    ↓
+/ Input electricity units /
+    ↓
+◇ Units are valid? ◇
+  No ↓             Yes ↓
+[Print invalid]   [Calculate bill by slabs]
+                      ↓
+               [Calculate rebate + fixed charge]
+                      ↓
+               / Display total bill /
+                      ↓
+                   ( END )
+
+                   Python Code
+
+units = int(input("Enter units consumed: "))
+
+ 
+
+if units < 0:
+
+    print("Invalid units")
+
+else:
+
+    if units <= 100:
+
+        energy = units * 2
+
+    elif units <= 200:
+
+        energy = 100 * 2 + (units - 100) * 3
+
+    else:
+
+        energy = 100 * 2 + 100 * 3 + (units - 200) * 5
+
+ 
+
+    if energy > 500:
+
+        rebate = energy * 0.05
+
+    else:
+
+        rebate = 0
+
+ 
+
+    fixed_charge = 50
+
+    total = energy - rebate + fixed_charge
+
+ 
+
+    print("Energy charge: Rs.", energy)
+
+    print("Rebate: Rs.", rebate)
+
+    print("Fixed charge: Rs.", fixed_charge)
+
+    print("Final bill: Rs.", total)
+
+    sample output
+
+    Enter units consumed: 250
+    Energy charge: Rs. 750
+    Rebate: Rs. 37.5
+    Fixed charge: Rs. 50
+    Final bill: Rs. 762.5
